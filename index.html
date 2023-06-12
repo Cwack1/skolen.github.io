@@ -56,27 +56,11 @@
 	  
 	}).then((canvas) => {
 		const img = canvas.toDataURL("image/png");
-		
+		const imgProps = doc.getImageProperties(img);
+		const imgHeight = (imgProps.height * width) / imgProps.width;
 		doc.addImage(img, "PNG", 0, 0, width, height);
 		doc.save("Test.pdf");
 	})
-	/*
-      const opt = {
-	      callback: function (doc) {
-		      doc.save("Test.pdf");
-	      },
-	      margin: [72,72,72,72],
-	      autoPaging: 'text',
-	      html2canvas: {
-		      allowTaint: true,
-		      dpi: 300,
-		      letterRendering: true,
-		      logging: false,
-		      scale: .8
-	      }
-      };
-	  doc.html(htmlElement, opt);
-	  */
   }
 </script>
   </body>
