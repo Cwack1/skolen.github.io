@@ -279,8 +279,21 @@ margin: 20px;
 	})
   }
 	
+	function getRandomInt(max){
+		return Math.floor(Math.random() * max);	
+	}
+	
 	function generateNewNumbers(){
-		$('#grid1x3').text("5");	
+		for(let i = 1; i <= 15; i++){
+			$('#grid'+i+'x3').text(getRandomInt(9));
+			$('#grid'+i+'x6').text(getRandomInt(9));
+		}
+		//Change numbers in grid 1
+		//$('#grid1x3').text("5");
+		//$('#grid1x6').text("5");
+		//Change numbers in grid 2
+		//$('#grid1x3').text("5");
+		//$('#grid1x6').text("5");
 	}
 </script>
   </body>
