@@ -61,10 +61,11 @@
       
   function saveHTML(){
       let doc = new jsPDF('p', 'pt', 'a4');
-	  var divHeight = $('#contentToPrint').height;
-	  var divWidth = $('#contentToPrint').width;
-	  var ratio = divHeight / divWidth;
+	  
       let htmlElement = document.querySelector("#contentToPrint");
+	  var divHeight = htmlElement.height;
+	  var divWidth = htmlElement.width;
+	  var ratio = divHeight / divWidth;
 	  let width = doc.internal.pageSize.getWidth();
 	  let height = doc.internal.pageSize.getHeight();
 	html2canvas(htmlElement, {
