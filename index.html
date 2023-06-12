@@ -285,7 +285,7 @@ margin: 20px;
 		return Math.floor(Math.random() * max);	
 	}
 	
-	//Random number 1 -> Max
+	//Random number 1 -> Max -1
 	function getRandomIntNotNull(max){
 		return 1 + Math.floor(Math.random() * max - 1);	
 	}
@@ -305,7 +305,7 @@ margin: 20px;
 		*/
 		//If subtraksjon this should be run
 		for(let i = 1; i <=15; i++){
-			var temp = getRandomIntNotNull(8) + 1;
+			var temp = getRandomIntNotNull(9) + 1;
 			$('#grid'+i+'x3').text(temp);
 			$('#grid'+i+'x6').text(getRandomIntNotNull(temp));
 		}
