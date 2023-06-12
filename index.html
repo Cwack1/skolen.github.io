@@ -4,6 +4,159 @@
     
   </head>
   <body>
-    <p>Hello World!</p>
+   <div id="contentToPrint">
+  <div class="calculator">
+  
+    <input type="text" class="calculator-screen" value="0" disabled />
+    
+    <div class="calculator-keys">
+      
+      <button type="button" class="operator" value="+">+</button>
+      <button type="button" class="operator" value="-">-</button>
+      <button type="button" class="operator" value="*">&times;</button>
+      <button type="button" class="operator" value="/">&divide;</button>
+  
+      <button type="button" value="7">7</button>
+      <button type="button" value="8">8</button>
+      <button type="button" value="9">9</button>
+  
+  
+      <button type="button" value="4">4</button>
+      <button type="button" value="5">5</button>
+      <button type="button" value="6">6</button>
+  
+  
+      <button type="button" value="1">1</button>
+      <button type="button" value="2">2</button>
+      <button type="button" value="3">3</button>
+  
+  
+      <button type="button" value="0">0</button>
+      <button type="button" class="decimal" value=".">.</button>
+      <button type="button" class="all-clear" value="all-clear">AC</button>
+  
+      <button type="button" class="equal-sign" value="=">=</button>
+  
+    </div>
+  </div>
+</div>
+
+<style>
+html {
+font-size: 62.5%;
+box-sizing: border-box;
+}
+
+*, *::before, *::after {
+margin: 0;
+padding: 0;
+box-sizing: inherit;
+}
+
+.calculator {
+border: 1px solid #ccc;
+border-radius: 5px;
+position: absolute;
+top: 50%;
+left: 50%;
+width: 400px;
+}
+
+.calculator-screen {
+width: 100%;
+font-size: 5rem;
+height: 80px;
+border: none;
+background-color: #252525;
+color: #fff;
+text-align: right;
+padding-right: 20px;
+padding-left: 10px;
+}
+
+button {
+height: 60px;
+background-color: #fff;
+border-radius: 3px;
+border: 1px solid #c4c4c4;
+background-color: transparent;
+font-size: 2rem;
+color: #333;
+background-image: linear-gradient(to bottom,transparent,transparent 50%,rgba(0,0,0,.04));
+box-shadow: inset 0 0 0 1px rgba(255,255,255,.05), inset 0 1px 0 0 rgba(255,255,255,.45), inset 0 -1px 0 0 rgba(255,255,255,.15), 0 1px 0 0 rgba(255,255,255,.15);
+text-shadow: 0 1px rgba(255,255,255,.4);
+}
+
+button:hover {
+background-color: #eaeaea;
+}
+
+.operator {
+color: #337cac;
+}
+
+.all-clear {
+background-color: #f0595f;
+border-color: #b0353a;
+color: #fff;
+}
+
+.all-clear:hover {
+background-color: #f17377;
+}
+
+.equal-sign {
+background-color: #2e86c0;
+border-color: #337cac;
+color: #fff;
+height: 100%;
+grid-area: 2 / 4 / 6 / 5;
+}
+
+.equal-sign:hover {
+background-color: #4e9ed4;
+}
+
+.calculator-keys {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+grid-gap: 20px;
+padding: 20px;
+}
+</style>
+
+<div class="form">
+  <button onclick="saveHTML()">Save</button>
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js">import { jsPDF } from "jspdf";</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script type="text/javascript">
+      window.jsPDF = window.jspdf.jsPDF;
+      
+  function saveHTML(){
+    
+      let doc = new jsPDF();
+
+      
+      let elementHTML = document.querySelector("#contentToPrint");
+
+      html2canvas(elementHTML).then((canvas) => {
+        // Few necessary setting options
+			const imgWidth = 208;
+			const pageHeight = 295;
+			const imgHeight = canvas.height * imgWidth / canvas.width;
+			const heightLeft = imgHeight;
+
+			const contentDataURL = canvas.toDataURL('image/png');
+			const doc = new jsPDF('p', 'mm', 'a4'); // A4 size page of PDF
+			const position = 0;
+			doc.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
+			doc.save('test.pdf'); // Generated PDF
+      });
+      
+        
+  }
+</script>
   </body>
 </html>
