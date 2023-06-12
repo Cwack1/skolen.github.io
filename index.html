@@ -52,7 +52,7 @@
 	  let height = doc.internal.pageSize.getHeight();
 	html2canvas(htmlElement, {
 		width: width,
-		height: height/2
+		height: height
 	  
 	}).then((canvas) => {
 		const img = canvas.toDataURL("image/png");
