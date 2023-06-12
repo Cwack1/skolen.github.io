@@ -296,9 +296,18 @@ margin: 20px;
 	
 	//Generating new numbers 
 	function generateNewNumbers(){
+		//If addisjon this can be run
+		/*
 		for(let i = 1; i <= 15; i++){
 			$('#grid'+i+'x3').text(newRand());
 			$('#grid'+i+'x6').text(newRand());
+		}
+		*/
+		//If subtraksjon this should be run
+		for(let i = 1; i <=15; i++){
+			var temp = getRandomIntNotNull(2);
+			$('#grid'+i+'x3').text(temp);
+			$('#grid'+i+'x6').text(getRandomInt(temp);
 		}
 	}
 	
