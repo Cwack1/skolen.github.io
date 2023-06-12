@@ -249,6 +249,7 @@ margin: 20px;
 
 <div class="form">
   <button onclick="saveHTML()">Save to PDF</button>
+	<button onclick="generateNewNumbers()">Generate New</button>
 </div>
 
 	  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
@@ -277,6 +278,10 @@ margin: 20px;
 		doc.save("Test.pdf");
 	})
   }
+	
+	function generateNewNumbers(){
+		$('#grid1x3').text("5");	
+	}
 </script>
   </body>
 </html>
