@@ -139,6 +139,17 @@ padding: 20px;
       let doc = new jsPDF('p', 'pt', 'letter');
 	  
       let htmlElement = document.querySelector("#contentToPrint");
+	html2canvas(htmlElement, {
+		width: doc.internal.pageSize.getWidth(),
+		height: doc.internal.pageSize.getHeight()
+	  
+	}).then(canvas) => {
+		const img = canvas.toDataURL("image/png");
+		
+		doc.addImage(img, "PNG", 140, 10, doc.internal.pageSize.getWidth(), doc.internal.pageSize.getHeight());
+		doc.save("Test.pdf");
+	})
+	/*
       const opt = {
 	      callback: function (doc) {
 		      doc.save("Test.pdf");
@@ -154,6 +165,7 @@ padding: 20px;
 	      }
       };
 	  doc.html(htmlElement, opt);
+	  */
   }
 </script>
   </body>
