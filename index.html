@@ -7,6 +7,7 @@
    <div id="contentToPrint">
 	<div class="grid-container">
 		<div class="grid-item">
+			<p>1</p>
 			<div class="inner-grid-container">
 				<div class="grid-item"></div>
 				<div class="grid-item"></div>
@@ -67,7 +68,7 @@ margin: 20px;
       window.jsPDF = window.jspdf.jsPDF;
       
   function saveHTML(){
-      let doc = new jsPDF('p', 'pt', 'a4');
+      let doc = new jsPDF('p', 'mm', 'a4');
 	  
       let htmlElement = document.querySelector("#contentToPrint");
 	  var divHeight = $('#contentToPrint').height();
