@@ -27,6 +27,9 @@
 		<div class="grid-item">7</div>
 		<div class="grid-item">8</div>
 		<div class="grid-item">9</div>
+		<div class="grid-item">10</div>
+		<div class="grid-item">11</div>
+		<div class="grid-item">12</div>
 	   </div>
 </div>
 
@@ -57,7 +60,7 @@
       window.jsPDF = window.jspdf.jsPDF;
       
   function saveHTML(){
-      let doc = new jsPDF('p', 'pt', 'a4');
+      let doc = new jsPDF('p', 'pt', 'a4', 'l');
 	  
       let htmlElement = document.querySelector("#contentToPrint");
 	  let width = doc.internal.pageSize.getWidth();
