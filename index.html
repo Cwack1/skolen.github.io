@@ -45,7 +45,7 @@
       window.jsPDF = window.jspdf.jsPDF;
       
   function saveHTML(){
-      let doc = new jsPDF('p', 'px', 'a4');
+      let doc = new jsPDF('p', 'pt', 'a4');
 	  
       let htmlElement = document.querySelector("#contentToPrint");
 	  let width = doc.internal.pageSize.getWidth();
