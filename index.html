@@ -79,6 +79,11 @@
 		//const imgHeight = (imgProps.height * width) / imgProps.width;
 		//height = ratio * width;
 		var nh = width * ratio;
+		console.log(divHeight);
+		console.log(divWidth);
+		console.log(width);
+		console.log(ratio);
+		console.log(height);
 		console.log(nh);
 		doc.addImage(img, "PNG", 0, 0, width, height);
 		doc.save("Test.pdf");
