@@ -67,7 +67,7 @@
 	  var divWidth = htmlElement.width;
 	  var ratio = divHeight / divWidth;
 	  let width = doc.internal.pageSize.getWidth();
-	  var height = doc.internal.pageSize.getHeight();
+	  let height = width * ratio;
 	html2canvas(htmlElement, {
 		width: divWidth,
 		height: divHeight
@@ -77,7 +77,7 @@
 		//const imgProps = doc.getImageProperties(img);
 		//Scaling the image to fill width and scale height 
 		//const imgHeight = (imgProps.height * width) / imgProps.width;
-		height = ratio * width;
+		//height = ratio * width;
 		doc.addImage(img, "PNG", 0, 0, width, height);
 		doc.save("Test.pdf");
 	})
