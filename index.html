@@ -45,17 +45,19 @@
       window.jsPDF = window.jspdf.jsPDF;
       
   function saveHTML(){
-      let doc = new jsPDF('p', 'pt', 'letter');
+      let doc = new jsPDF('p', 'mm', 'a4');
 	  
       let htmlElement = document.querySelector("#contentToPrint");
+	  let width = doc.internal.pageSize.getWidth();
+	  let height = doc.internal.pageSize.getHeight();
 	html2canvas(htmlElement, {
-		width: doc.internal.pageSize.getWidth(),
-		height: doc.internal.pageSize.getHeight()
+		width: width,
+		height: height
 	  
 	}).then((canvas) => {
 		const img = canvas.toDataURL("image/png");
 		
-		doc.addImage(img, "PNG", 140, 10, doc.internal.pageSize.getWidth(), doc.internal.pageSize.getHeight());
+		doc.addImage(img, "PNG", 0, 0, width, height);
 		doc.save("Test.pdf");
 	})
 	/*
