@@ -250,6 +250,8 @@ margin: 20px;
 <div class="form">
   <button onclick="saveHTML()">Save to PDF</button>
 	<button onclick="generateNewNumbers()">Generate New</button>
+	<button onclick="changeRegneart('+')">Addisjon</button>
+	<button onclick="changeRegneart('-')">Subtraksjon</button>
 </div>
 
 	  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
@@ -278,26 +280,32 @@ margin: 20px;
 		doc.save("Test.pdf");
 	})
   }
-	
+	//Random number 0 -> Max
 	function getRandomInt(max){
 		return Math.floor(Math.random() * max);	
 	}
 	
+	//Random number 1 -> Max
+	function getRandomIntNotNull(max){
+		return 1 + Math.floor(Math.random() * max - 1);	
+	}
+	//Random number 1 -> 9
 	function newRand(){
 		return 1 + Math.floor(Math.random() * 8);	
 	}
 	
+	//Generating new numbers 
 	function generateNewNumbers(){
 		for(let i = 1; i <= 15; i++){
 			$('#grid'+i+'x3').text(newRand());
 			$('#grid'+i+'x6').text(newRand());
 		}
-		//Change numbers in grid 1
-		//$('#grid1x3').text("5");
-		//$('#grid1x6').text("5");
-		//Change numbers in grid 2
-		//$('#grid1x3').text("5");
-		//$('#grid1x6').text("5");
+	}
+	
+	function changeRegneart(val){
+		for (let i = 1; i <= 15; i++){
+			$('#grid'+i+'x4').text(val);	
+		}
 	}
 </script>
   </body>
