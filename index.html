@@ -146,7 +146,7 @@ padding: 20px;
 	}).then((canvas) => {
 		const img = canvas.toDataURL("image/png");
 		
-		doc.addImage(img, "PNG", 250, 100, doc.internal.pageSize.getWidth(), doc.internal.pageSize.getHeight());
+		doc.addImage(img, "PNG", 140, 20, doc.internal.pageSize.getWidth(), doc.internal.pageSize.getHeight());
 		doc.save("Test.pdf");
 	})
 	/*
