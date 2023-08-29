@@ -1,0 +1,412 @@
+  <div class="form">
+  <button onclick="saveHTML()">Save to PDF</button>
+	<button onclick="generateNewNumbers()">Generate New</button>
+	<button onclick="changeRegneart('+')">Addisjon</button>
+	<button onclick="changeRegneart('-')">Subtraksjon</button>
+</div>
+  
+  <div id="contentToPrint" class="contentToPrint">
+	<div class="grid-container">
+		<div class="grid-item">
+			<p class="oppgTitle">Oppgave 1</p>
+			<div class="inner-grid-container">
+				<div class="grid-item" id="grid1x1"></div>
+				<div class="grid-item" id="grid1x2"></div>
+				<div class="grid-item" id="grid1x3">4</div>
+				<div class="grid-item" id="grid1x4">+</div>
+				<div class="grid-item" id="grid1x5"></div>
+				<div class="grid-item" id="grid1x6">9</div>
+				<div class="grid-item" id="grid1x7">=</div>
+				<div class="grid-item" id="grid1x8"></div>
+				<div class="grid-item" id="grid1x9"></div>
+			</div>
+		</div>
+		<div class="grid-item">
+		<p class="oppgTitle">Oppgave 2</p>
+			<div class="inner-grid-container">
+				<div class="grid-item" id="grid2x1"></div>
+				<div class="grid-item" id="grid2x2"></div>
+				<div class="grid-item" id="grid2x3">4</div>
+				<div class="grid-item" id="grid2x4">+</div>
+				<div class="grid-item" id="grid2x5"></div>
+				<div class="grid-item" id="grid2x6">9</div>
+				<div class="grid-item" id="grid2x7">=</div>
+				<div class="grid-item" id="grid2x8"></div>
+				<div class="grid-item" id="grid2x9"></div>
+			</div>
+		</div>
+		<div class="grid-item">
+		<p class="oppgTitle">Oppgave 3</p>
+			<div class="inner-grid-container">
+				<div class="grid-item" id="grid3x1"></div>
+				<div class="grid-item" id="grid3x2"></div>
+				<div class="grid-item" id="grid3x3">4</div>
+				<div class="grid-item" id="grid3x4">+</div>
+				<div class="grid-item" id="grid3x5"></div>
+				<div class="grid-item" id="grid3x6">9</div>
+				<div class="grid-item" id="grid3x7">=</div>
+				<div class="grid-item" id="grid3x8"></div>
+				<div class="grid-item" id="grid3x9"></div>
+			</div>
+		</div>
+		<div class="grid-item">
+		<p class="oppgTitle">Oppgave 4</p>
+			<div class="inner-grid-container">
+				<div class="grid-item" id="grid4x1"></div>
+				<div class="grid-item" id="grid4x2"></div>
+				<div class="grid-item" id="grid4x3">4</div>
+				<div class="grid-item" id="grid4x4">+</div>
+				<div class="grid-item" id="grid4x5"></div>
+				<div class="grid-item" id="grid4x6">9</div>
+				<div class="grid-item" id="grid4x7">=</div>
+				<div class="grid-item" id="grid4x8"></div>
+				<div class="grid-item" id="grid4x9"></div>
+			</div>
+		</div>
+		<div class="grid-item">
+		<p class="oppgTitle">Oppgave 5</p>
+			<div class="inner-grid-container">
+				<div class="grid-item" id="grid5x1"></div>
+				<div class="grid-item" id="grid5x2"></div>
+				<div class="grid-item" id="grid5x3">4</div>
+				<div class="grid-item" id="grid5x4">+</div>
+				<div class="grid-item" id="grid5x5"></div>
+				<div class="grid-item" id="grid5x6">9</div>
+				<div class="grid-item" id="grid5x7">=</div>
+				<div class="grid-item" id="grid5x8"></div>
+				<div class="grid-item" id="grid5x9"></div>
+			</div>
+		</div>
+		<div class="grid-item">
+		<p class="oppgTitle">Oppgave 6</p>
+			<div class="inner-grid-container">
+				<div class="grid-item" id="grid6x1"></div>
+				<div class="grid-item" id="grid6x2"></div>
+				<div class="grid-item" id="grid6x3">4</div>
+				<div class="grid-item" id="grid6x4">+</div>
+				<div class="grid-item" id="grid6x5"></div>
+				<div class="grid-item" id="grid6x6">9</div>
+				<div class="grid-item" id="grid6x7">=</div>
+				<div class="grid-item" id="grid6x8"></div>
+				<div class="grid-item" id="grid6x9"></div>
+			</div>
+		</div>
+		<div class="grid-item">
+		<p class="oppgTitle">Oppgave 7</p>
+			<div class="inner-grid-container">
+				<div class="grid-item" id="grid7x1"></div>
+				<div class="grid-item" id="grid7x2"></div>
+				<div class="grid-item" id="grid7x3">4</div>
+				<div class="grid-item" id="grid7x4">+</div>
+				<div class="grid-item" id="grid7x5"></div>
+				<div class="grid-item" id="grid7x6">9</div>
+				<div class="grid-item" id="grid7x7">=</div>
+				<div class="grid-item" id="grid7x8"></div>
+				<div class="grid-item" id="grid7x9"></div>
+			</div>
+		</div>
+		<div class="grid-item">
+		<p class="oppgTitle">Oppgave 8</p>
+			<div class="inner-grid-container">
+				<div class="grid-item" id="grid8x1"></div>
+				<div class="grid-item" id="grid8x2"></div>
+				<div class="grid-item" id="grid8x3">4</div>
+				<div class="grid-item" id="grid8x4">+</div>
+				<div class="grid-item" id="grid8x5"></div>
+				<div class="grid-item" id="grid8x6">9</div>
+				<div class="grid-item" id="grid8x7">=</div>
+				<div class="grid-item" id="grid8x8"></div>
+				<div class="grid-item" id="grid8x9"></div>
+			</div>
+		</div>
+		<div class="grid-item">
+		<p class="oppgTitle">Oppgave 9</p>
+			<div class="inner-grid-container">
+				<div class="grid-item" id="grid9x1"></div>
+				<div class="grid-item" id="grid9x2"></div>
+				<div class="grid-item" id="grid9x3">4</div>
+				<div class="grid-item" id="grid9x4">+</div>
+				<div class="grid-item" id="grid9x5"></div>
+				<div class="grid-item" id="grid9x6">9</div>
+				<div class="grid-item" id="grid9x7">=</div>
+				<div class="grid-item" id="grid9x8"></div>
+				<div class="grid-item" id="grid9x9"></div>
+			</div>
+		</div>
+		<div class="grid-item">
+			<p class="oppgTitle">Oppgave 10</p>
+			<div class="inner-grid-container">
+				<div class="grid-item" id="grid10x1"></div>
+				<div class="grid-item" id="grid10x2"></div>
+				<div class="grid-item" id="grid10x3">4</div>
+				<div class="grid-item" id="grid10x4">+</div>
+				<div class="grid-item" id="grid10x5"></div>
+				<div class="grid-item" id="grid10x6">9</div>
+				<div class="grid-item" id="grid10x7">=</div>
+				<div class="grid-item" id="grid10x8"></div>
+				<div class="grid-item" id="grid10x9"></div>
+			</div>
+		</div>
+	   	<div class="grid-item">
+			<p class="oppgTitle">Oppgave 11</p>
+			<div class="inner-grid-container">
+				<div class="grid-item" id="grid11x1"></div>
+				<div class="grid-item" id="grid11x2"></div>
+				<div class="grid-item" id="grid11x3">4</div>
+				<div class="grid-item" id="grid11x4">+</div>
+				<div class="grid-item" id="grid11x5"></div>
+				<div class="grid-item" id="grid11x6">9</div>
+				<div class="grid-item" id="grid11x7">=</div>
+				<div class="grid-item" id="grid11x8"></div>
+				<div class="grid-item" id="grid11x9"></div>
+			</div>
+		</div>
+		<div class="grid-item">
+		<p class="oppgTitle">Oppgave 12</p>
+			<div class="inner-grid-container">
+				<div class="grid-item" id="grid12x1"></div>
+				<div class="grid-item" id="grid12x2"></div>
+				<div class="grid-item" id="grid12x3">4</div>
+				<div class="grid-item" id="grid12x4">+</div>
+				<div class="grid-item" id="grid12x5"></div>
+				<div class="grid-item" id="grid12x6">9</div>
+				<div class="grid-item" id="grid12x7">=</div>
+				<div class="grid-item" id="grid12x8"></div>
+				<div class="grid-item" id="grid12x9"></div>
+			</div>
+		</div>
+				<div class="grid-item">
+		<p class="oppgTitle">Oppgave 13</p>
+			<div class="inner-grid-container">
+				<div class="grid-item" id="grid13x1"></div>
+				<div class="grid-item" id="grid13x2"></div>
+				<div class="grid-item" id="grid13x3">4</div>
+				<div class="grid-item" id="grid13x4">+</div>
+				<div class="grid-item" id="grid13x5"></div>
+				<div class="grid-item" id="grid13x6">9</div>
+				<div class="grid-item" id="grid13x7">=</div>
+				<div class="grid-item" id="grid13x8"></div>
+				<div class="grid-item" id="grid13x9"></div>
+			</div>
+		</div>
+				<div class="grid-item">
+		<p class="oppgTitle">Oppgave 14</p>
+			<div class="inner-grid-container">
+				<div class="grid-item" id="grid14x1"></div>
+				<div class="grid-item" id="grid14x2"></div>
+				<div class="grid-item" id="grid14x3">4</div>
+				<div class="grid-item" id="grid14x4">+</div>
+				<div class="grid-item" id="grid14x5"></div>
+				<div class="grid-item" id="grid14x6">9</div>
+				<div class="grid-item" id="grid14x7">=</div>
+				<div class="grid-item" id="grid14x8"></div>
+				<div class="grid-item" id="grid14x9"></div>
+			</div>
+		</div>
+				<div class="grid-item">
+		<p class="oppgTitle">Oppgave 15</p>
+			<div class="inner-grid-container">
+				<div class="grid-item" id="grid15x1"></div>
+				<div class="grid-item" id="grid15x2"></div>
+				<div class="grid-item" id="grid15x3">4</div>
+				<div class="grid-item" id="grid15x4">+</div>
+				<div class="grid-item" id="grid15x5"></div>
+				<div class="grid-item" id="grid15x6">9</div>
+				<div class="grid-item" id="grid15x7">=</div>
+				<div class="grid-item" id="grid15x8"></div>
+				<div class="grid-item" id="grid15x9"></div>
+			</div>
+		</div>
+					<div class="grid-item">
+		<p class="oppgTitle">Oppgave 16</p>
+			<div class="inner-grid-container">
+				<div class="grid-item" id="grid16x1"></div>
+				<div class="grid-item" id="grid16x2"></div>
+				<div class="grid-item" id="grid16x3">4</div>
+				<div class="grid-item" id="grid16x4">+</div>
+				<div class="grid-item" id="grid16x5"></div>
+				<div class="grid-item" id="grid16x6">9</div>
+				<div class="grid-item" id="grid16x7">=</div>
+				<div class="grid-item" id="grid16x8"></div>
+				<div class="grid-item" id="grid16x9"></div>
+			</div>
+		</div>
+					<div class="grid-item">
+		<p class="oppgTitle">Oppgave 17</p>
+			<div class="inner-grid-container">
+				<div class="grid-item" id="grid17x1"></div>
+				<div class="grid-item" id="grid17x2"></div>
+				<div class="grid-item" id="grid17x3">4</div>
+				<div class="grid-item" id="grid17x4">+</div>
+				<div class="grid-item" id="grid17x5"></div>
+				<div class="grid-item" id="grid17x6">9</div>
+				<div class="grid-item" id="grid17x7">=</div>
+				<div class="grid-item" id="grid17x8"></div>
+				<div class="grid-item" id="grid17x9"></div>
+			</div>
+		</div>
+					<div class="grid-item">
+		<p class="oppgTitle">Oppgave 18</p>
+			<div class="inner-grid-container">
+				<div class="grid-item" id="grid18x1"></div>
+				<div class="grid-item" id="grid18x2"></div>
+				<div class="grid-item" id="grid18x3">4</div>
+				<div class="grid-item" id="grid18x4">+</div>
+				<div class="grid-item" id="grid18x5"></div>
+				<div class="grid-item" id="grid18x6">9</div>
+				<div class="grid-item" id="grid18x7">=</div>
+				<div class="grid-item" id="grid18x8"></div>
+				<div class="grid-item" id="grid18x9"></div>
+			</div>
+		</div>
+					<div class="grid-item">
+		<p class="oppgTitle">Oppgave 19</p>
+			<div class="inner-grid-container">
+				<div class="grid-item" id="grid19x1"></div>
+				<div class="grid-item" id="grid19x2"></div>
+				<div class="grid-item" id="grid19x3">4</div>
+				<div class="grid-item" id="grid19x4">+</div>
+				<div class="grid-item" id="grid19x5"></div>
+				<div class="grid-item" id="grid19x6">9</div>
+				<div class="grid-item" id="grid19x7">=</div>
+				<div class="grid-item" id="grid19x8"></div>
+				<div class="grid-item" id="grid19x9"></div>
+			</div>
+		</div>
+		<div class="grid-item">
+		<p class="oppgTitle">Oppgave 20</p>
+			<div class="inner-grid-container">
+				<div class="grid-item" id="grid20x1"></div>
+				<div class="grid-item" id="grid20x2"></div>
+				<div class="grid-item" id="grid20x3">4</div>
+				<div class="grid-item" id="grid20x4">+</div>
+				<div class="grid-item" id="grid20x5"></div>
+				<div class="grid-item" id="grid20x6">9</div>
+				<div class="grid-item" id="grid20x7">=</div>
+				<div class="grid-item" id="grid20x8"></div>
+				<div class="grid-item" id="grid20x9"></div>
+			</div>
+		</div>
+	   </div>
+	   <div style="clear:both"></div>
+</div>
+
+<style>
+.oppgTitle {
+	font-size: 14px;
+	text-align: left;
+	left: 0px;
+	}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 230px 230px 230px 230px 230px;
+  grid-template-rows: 400px 400px 400px 400px;
+  background-color: #2196F3;
+  padding: 10px;
+    margin: 20px;
+    height: 1600px;
+    width: 1150px;
+}
+.inner-grid-container {
+	display: grid;
+  	grid-template-columns: auto auto auto;
+  	background-color: #2196F3;
+  	padding: 5px;
+	}
+.grid-item {
+    display: block;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+</style>
+
+
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js">import { jsPDF } from "jspdf";</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script type="text/javascript">
+      window.jsPDF = window.jspdf.jsPDF;
+      var doc = new jsPDF('p', 'mm', 'a4');
+      let numQ = 20;
+  function saveHTML(){
+      doc = new jsPDF('p', 'mm', 'a4');
+      
+      let htmlElement = document.querySelector("#contentToPrint");
+	html2canvas(htmlElement, {
+		width: 1200,
+		height: 1626
+	  
+	}).then((htmlElement) => {
+		const img = htmlElement.toDataURL("image/png");
+		doc.addImage(img, "PNG", 13, 20, 185, 260);
+		if($('#grid1x4').text().indexOf('+') >= 0){
+	        createHeader('Addisjon');
+	    }else{
+	        createHeader('Subtraksjon');
+	    }
+		doc.save("Test.pdf");
+	})
+  }
+  
+      function createHeader(title){
+        doc.setFontSize(16);
+        doc.text(title, 105, 12, {align: 'center'});
+        doc.setFontSize(10);
+        doc.text('Navn: ________________________', 150, 12);
+    //doc.text('Points: _____ / 40', 200, 20, {align: 'right'});
+    }
+  
+	//Random number 0 -> Max
+	function getRandomInt(max){
+		return Math.floor(Math.random() * max);	
+	}
+	
+	//Random number 1 -> Max -1
+	function getRandomIntNotNull(max){
+		return 1 + Math.floor(Math.random() * max - 1);	
+	}
+	//Random number 1 -> 9
+	function newRand(){
+		return 1 + Math.floor(Math.random() * 8);	
+	}
+	
+	//Generating new numbers 
+	function generateNewNumbers(){
+		if($('#grid1x4').text().indexOf('+') >= 0){
+			//If addisjon this can be run
+			for(let i = 1; i <= numQ; i++){
+				$('#grid'+i+'x3').text(newRand());
+				$('#grid'+i+'x6').text(newRand());
+			}
+		}else{
+		//If subtraksjon this should be run
+			for(let i = 1; i <= numQ; i++){
+				var temp = getRandomIntNotNull(9) + 1;
+				$('#grid'+i+'x3').text(temp);
+				$('#grid'+i+'x6').text(getRandomIntNotNull(temp));
+			}
+		}
+
+	}
+	
+	function changeRegneart(val){
+		for (let i = 1; i <= numQ; i++){
+			$('#grid'+i+'x4').text(val);	
+		}
+	}
+	
+	//Add event listener to all boxes
+	let boxes = document.querySelectorAll('div.inner-grid-container > div.grid-item');
+	for (i of boxes){
+	    i.addEventListener('click', function(el) {
+	   console.log(this.innerHTML);
+	   let inp = prompt("Enter a new value");
+	   this.innerHTML = inp;
+	   
+	});
+	}
+</script>
