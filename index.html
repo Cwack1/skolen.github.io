@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    
-  </head>
-  <body>
-   <div id="contentToPrint">
+  <div class="form">
+  <button onclick="saveHTML()">Save to PDF</button>
+	<button onclick="generateNewNumbers()">Generate New</button>
+	<button onclick="changeRegneart('+')">Addisjon</button>
+	<button onclick="changeRegneart('-')">Subtraksjon</button>
+</div>
+  
+  <div id="contentToPrint" class="contentToPrint">
 	<div class="grid-container">
 		<div class="grid-item">
 			<p class="oppgTitle">Oppgave 1</p>
@@ -216,7 +217,78 @@
 				<div class="grid-item" id="grid15x9"></div>
 			</div>
 		</div>
+					<div class="grid-item">
+		<p class="oppgTitle">Oppgave 16</p>
+			<div class="inner-grid-container">
+				<div class="grid-item" id="grid16x1"></div>
+				<div class="grid-item" id="grid16x2"></div>
+				<div class="grid-item" id="grid16x3">4</div>
+				<div class="grid-item" id="grid16x4">+</div>
+				<div class="grid-item" id="grid16x5"></div>
+				<div class="grid-item" id="grid16x6">9</div>
+				<div class="grid-item" id="grid16x7">=</div>
+				<div class="grid-item" id="grid16x8"></div>
+				<div class="grid-item" id="grid16x9"></div>
+			</div>
+		</div>
+					<div class="grid-item">
+		<p class="oppgTitle">Oppgave 17</p>
+			<div class="inner-grid-container">
+				<div class="grid-item" id="grid17x1"></div>
+				<div class="grid-item" id="grid17x2"></div>
+				<div class="grid-item" id="grid17x3">4</div>
+				<div class="grid-item" id="grid17x4">+</div>
+				<div class="grid-item" id="grid17x5"></div>
+				<div class="grid-item" id="grid17x6">9</div>
+				<div class="grid-item" id="grid17x7">=</div>
+				<div class="grid-item" id="grid17x8"></div>
+				<div class="grid-item" id="grid17x9"></div>
+			</div>
+		</div>
+					<div class="grid-item">
+		<p class="oppgTitle">Oppgave 18</p>
+			<div class="inner-grid-container">
+				<div class="grid-item" id="grid18x1"></div>
+				<div class="grid-item" id="grid18x2"></div>
+				<div class="grid-item" id="grid18x3">4</div>
+				<div class="grid-item" id="grid18x4">+</div>
+				<div class="grid-item" id="grid18x5"></div>
+				<div class="grid-item" id="grid18x6">9</div>
+				<div class="grid-item" id="grid18x7">=</div>
+				<div class="grid-item" id="grid18x8"></div>
+				<div class="grid-item" id="grid18x9"></div>
+			</div>
+		</div>
+					<div class="grid-item">
+		<p class="oppgTitle">Oppgave 19</p>
+			<div class="inner-grid-container">
+				<div class="grid-item" id="grid19x1"></div>
+				<div class="grid-item" id="grid19x2"></div>
+				<div class="grid-item" id="grid19x3">4</div>
+				<div class="grid-item" id="grid19x4">+</div>
+				<div class="grid-item" id="grid19x5"></div>
+				<div class="grid-item" id="grid19x6">9</div>
+				<div class="grid-item" id="grid19x7">=</div>
+				<div class="grid-item" id="grid19x8"></div>
+				<div class="grid-item" id="grid19x9"></div>
+			</div>
+		</div>
+		<div class="grid-item">
+		<p class="oppgTitle">Oppgave 20</p>
+			<div class="inner-grid-container">
+				<div class="grid-item" id="grid20x1"></div>
+				<div class="grid-item" id="grid20x2"></div>
+				<div class="grid-item" id="grid20x3">4</div>
+				<div class="grid-item" id="grid20x4">+</div>
+				<div class="grid-item" id="grid20x5"></div>
+				<div class="grid-item" id="grid20x6">9</div>
+				<div class="grid-item" id="grid20x7">=</div>
+				<div class="grid-item" id="grid20x8"></div>
+				<div class="grid-item" id="grid20x9"></div>
+			</div>
+		</div>
 	   </div>
+	   <div style="clear:both"></div>
 </div>
 
 <style>
@@ -225,12 +297,16 @@
 	text-align: left;
 	left: 0px;
 	}
+
 .grid-container {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 230px 230px 230px 230px 230px;
+  grid-template-rows: 400px 400px 400px 400px;
   background-color: #2196F3;
   padding: 10px;
-margin: 20px;
+    margin: 20px;
+    height: 1600px;
+    width: 1150px;
 }
 .inner-grid-container {
 	display: grid;
@@ -239,6 +315,7 @@ margin: 20px;
   	padding: 5px;
 	}
 .grid-item {
+    display: block;
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 20px;
@@ -247,39 +324,42 @@ margin: 20px;
 }
 </style>
 
-<div class="form">
-  <button onclick="saveHTML()">Save to PDF</button>
-	<button onclick="generateNewNumbers()">Generate New</button>
-	<button onclick="changeRegneart('+')">Addisjon</button>
-	<button onclick="changeRegneart('-')">Subtraksjon</button>
-</div>
 
 	  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js">import { jsPDF } from "jspdf";</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script type="text/javascript">
       window.jsPDF = window.jspdf.jsPDF;
-      
+      var doc = new jsPDF('p', 'mm', 'a4');
+      let numQ = 20;
   function saveHTML(){
-      let doc = new jsPDF('p', 'mm', 'a4');
-	  
+      doc = new jsPDF('p', 'mm', 'a4');
+      
       let htmlElement = document.querySelector("#contentToPrint");
-	  var divHeight = $('#contentToPrint').height();
-	  var divWidth = $('#contentToPrint').width();
-	  var ratio = divHeight / divWidth;
-	  let width = doc.internal.pageSize.getWidth();
-	  //let height = doc.internal.pageSize.getHeight();
 	html2canvas(htmlElement, {
-		width: divWidth,
-		height: divHeight
+		width: 1200,
+		height: 1626
 	  
-	}).then((canvas) => {
-		const img = canvas.toDataURL("image/png");
-		var nh = width * ratio;
-		doc.addImage(img, "PNG", 0, 10, width, nh);
+	}).then((htmlElement) => {
+		const img = htmlElement.toDataURL("image/png");
+		doc.addImage(img, "PNG", 13, 20, 185, 260);
+		if($('#grid1x4').text().indexOf('+') >= 0){
+	        createHeader('Addisjon');
+	    }else{
+	        createHeader('Subtraksjon');
+	    }
 		doc.save("Test.pdf");
 	})
   }
+  
+      function createHeader(title){
+        doc.setFontSize(16);
+        doc.text(title, 105, 12, {align: 'center'});
+        doc.setFontSize(10);
+        doc.text('Navn: ________________________', 150, 12);
+    //doc.text('Points: _____ / 40', 200, 20, {align: 'right'});
+    }
+  
 	//Random number 0 -> Max
 	function getRandomInt(max){
 		return Math.floor(Math.random() * max);	
@@ -298,26 +378,39 @@ margin: 20px;
 	function generateNewNumbers(){
 		if($('#grid1x4').text().indexOf('+') >= 0){
 			//If addisjon this can be run
-			for(let i = 1; i <= 15; i++){
+			for(let i = 1; i <= numQ; i++){
+				$('#grid'+i+'x2').text(newRand());
 				$('#grid'+i+'x3').text(newRand());
+				$('#grid'+i+'x5').text(newRand());
 				$('#grid'+i+'x6').text(newRand());
 			}
 		}else{
 		//If subtraksjon this should be run
-			for(let i = 1; i <=15; i++){
+			for(let i = 1; i <= numQ; i++){
 				var temp = getRandomIntNotNull(9) + 1;
-				$('#grid'+i+'x3').text(temp);
-				$('#grid'+i+'x6').text(getRandomIntNotNull(temp));
+				$('#grid'+i+'x2').text(temp);
+				$('#grid'+i+'x3').text(newRand());
+				$('#grid'+i+'x5').text(getRandomIntNotNull(temp));
+				$('#grid'+i+'x6').text(newRand());
 			}
 		}
 
 	}
 	
 	function changeRegneart(val){
-		for (let i = 1; i <= 15; i++){
+		for (let i = 1; i <= numQ; i++){
 			$('#grid'+i+'x4').text(val);	
 		}
 	}
+	
+	//Add event listener to all boxes
+	let boxes = document.querySelectorAll('div.inner-grid-container > div.grid-item');
+	for (i of boxes){
+	    i.addEventListener('click', function(el) {
+	   console.log(this.innerHTML);
+	   let inp = prompt("Enter a new value");
+	   this.innerHTML = inp;
+	   
+	});
+	}
 </script>
-  </body>
-</html>
