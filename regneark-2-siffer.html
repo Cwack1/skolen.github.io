@@ -379,15 +379,19 @@
 		if($('#grid1x4').text().indexOf('+') >= 0){
 			//If addisjon this can be run
 			for(let i = 1; i <= numQ; i++){
+				$('#grid'+i+'x2').text(newRand());
 				$('#grid'+i+'x3').text(newRand());
+				$('#grid'+i+'x5').text(newRand());
 				$('#grid'+i+'x6').text(newRand());
 			}
 		}else{
 		//If subtraksjon this should be run
 			for(let i = 1; i <= numQ; i++){
 				var temp = getRandomIntNotNull(9) + 1;
-				$('#grid'+i+'x3').text(temp);
-				$('#grid'+i+'x6').text(getRandomIntNotNull(temp));
+				$('#grid'+i+'x2').text(temp);
+				$('#grid'+i+'x3').text(newRand());
+				$('#grid'+i+'x5').text(getRandomIntNotNull(temp));
+				$('#grid'+i+'x6').text(newRand());
 			}
 		}
 
