@@ -1,4 +1,10 @@
-  <div class="form">
+<ul>
+  <li><a href="index.html">Home</a></li>
+  <li><a href="CSS-regneark-1-siffer.html">1 Siffer</a></li>
+  <li><a href="regneark-2-siffer.html">2 Siffer</a></li>
+</ul>
+
+<div class="form">
   <button onclick="saveHTML()">Save to PDF</button>
 	<button onclick="generateNewNumbers()">Generate New</button>
 	<button onclick="changeRegneart('+')">Addisjon</button>
@@ -16,7 +22,7 @@
 				<div class="grid-item" id="grid1x4">+</div>
 				<div class="grid-item" id="grid1x5"></div>
 				<div class="grid-item" id="grid1x6">9</div>
-				<div class="grid-item" id="grid1x7">=</div>
+				<div class="grid-item-ans" id="grid1x7">=</div>
 				<div class="grid-item" id="grid1x8"></div>
 				<div class="grid-item" id="grid1x9"></div>
 			</div>
@@ -30,7 +36,7 @@
 				<div class="grid-item" id="grid2x4">+</div>
 				<div class="grid-item" id="grid2x5"></div>
 				<div class="grid-item" id="grid2x6">9</div>
-				<div class="grid-item" id="grid2x7">=</div>
+				<div class="grid-item-ans" id="grid2x7">=</div>
 				<div class="grid-item" id="grid2x8"></div>
 				<div class="grid-item" id="grid2x9"></div>
 			</div>
@@ -44,7 +50,7 @@
 				<div class="grid-item" id="grid3x4">+</div>
 				<div class="grid-item" id="grid3x5"></div>
 				<div class="grid-item" id="grid3x6">9</div>
-				<div class="grid-item" id="grid3x7">=</div>
+				<div class="grid-item-ans" id="grid3x7">=</div>
 				<div class="grid-item" id="grid3x8"></div>
 				<div class="grid-item" id="grid3x9"></div>
 			</div>
@@ -58,7 +64,7 @@
 				<div class="grid-item" id="grid4x4">+</div>
 				<div class="grid-item" id="grid4x5"></div>
 				<div class="grid-item" id="grid4x6">9</div>
-				<div class="grid-item" id="grid4x7">=</div>
+				<div class="grid-item-ans" id="grid4x7">=</div>
 				<div class="grid-item" id="grid4x8"></div>
 				<div class="grid-item" id="grid4x9"></div>
 			</div>
@@ -72,7 +78,7 @@
 				<div class="grid-item" id="grid5x4">+</div>
 				<div class="grid-item" id="grid5x5"></div>
 				<div class="grid-item" id="grid5x6">9</div>
-				<div class="grid-item" id="grid5x7">=</div>
+				<div class="grid-item-ans" id="grid5x7">=</div>
 				<div class="grid-item" id="grid5x8"></div>
 				<div class="grid-item" id="grid5x9"></div>
 			</div>
@@ -86,7 +92,7 @@
 				<div class="grid-item" id="grid6x4">+</div>
 				<div class="grid-item" id="grid6x5"></div>
 				<div class="grid-item" id="grid6x6">9</div>
-				<div class="grid-item" id="grid6x7">=</div>
+				<div class="grid-item-ans" id="grid6x7">=</div>
 				<div class="grid-item" id="grid6x8"></div>
 				<div class="grid-item" id="grid6x9"></div>
 			</div>
@@ -100,7 +106,7 @@
 				<div class="grid-item" id="grid7x4">+</div>
 				<div class="grid-item" id="grid7x5"></div>
 				<div class="grid-item" id="grid7x6">9</div>
-				<div class="grid-item" id="grid7x7">=</div>
+				<div class="grid-item-ans" id="grid7x7">=</div>
 				<div class="grid-item" id="grid7x8"></div>
 				<div class="grid-item" id="grid7x9"></div>
 			</div>
@@ -114,7 +120,7 @@
 				<div class="grid-item" id="grid8x4">+</div>
 				<div class="grid-item" id="grid8x5"></div>
 				<div class="grid-item" id="grid8x6">9</div>
-				<div class="grid-item" id="grid8x7">=</div>
+				<div class="grid-item-ans" id="grid8x7">=</div>
 				<div class="grid-item" id="grid8x8"></div>
 				<div class="grid-item" id="grid8x9"></div>
 			</div>
@@ -128,7 +134,7 @@
 				<div class="grid-item" id="grid9x4">+</div>
 				<div class="grid-item" id="grid9x5"></div>
 				<div class="grid-item" id="grid9x6">9</div>
-				<div class="grid-item" id="grid9x7">=</div>
+				<div class="grid-item-ans" id="grid9x7">=</div>
 				<div class="grid-item" id="grid9x8"></div>
 				<div class="grid-item" id="grid9x9"></div>
 			</div>
@@ -142,7 +148,7 @@
 				<div class="grid-item" id="grid10x4">+</div>
 				<div class="grid-item" id="grid10x5"></div>
 				<div class="grid-item" id="grid10x6">9</div>
-				<div class="grid-item" id="grid10x7">=</div>
+				<div class="grid-item-ans" id="grid10x7">=</div>
 				<div class="grid-item" id="grid10x8"></div>
 				<div class="grid-item" id="grid10x9"></div>
 			</div>
@@ -156,7 +162,7 @@
 				<div class="grid-item" id="grid11x4">+</div>
 				<div class="grid-item" id="grid11x5"></div>
 				<div class="grid-item" id="grid11x6">9</div>
-				<div class="grid-item" id="grid11x7">=</div>
+				<div class="grid-item-ans" id="grid11x7">=</div>
 				<div class="grid-item" id="grid11x8"></div>
 				<div class="grid-item" id="grid11x9"></div>
 			</div>
@@ -170,7 +176,7 @@
 				<div class="grid-item" id="grid12x4">+</div>
 				<div class="grid-item" id="grid12x5"></div>
 				<div class="grid-item" id="grid12x6">9</div>
-				<div class="grid-item" id="grid12x7">=</div>
+				<div class="grid-item-ans" id="grid12x7">=</div>
 				<div class="grid-item" id="grid12x8"></div>
 				<div class="grid-item" id="grid12x9"></div>
 			</div>
@@ -184,7 +190,7 @@
 				<div class="grid-item" id="grid13x4">+</div>
 				<div class="grid-item" id="grid13x5"></div>
 				<div class="grid-item" id="grid13x6">9</div>
-				<div class="grid-item" id="grid13x7">=</div>
+				<div class="grid-item-ans" id="grid13x7">=</div>
 				<div class="grid-item" id="grid13x8"></div>
 				<div class="grid-item" id="grid13x9"></div>
 			</div>
@@ -198,7 +204,7 @@
 				<div class="grid-item" id="grid14x4">+</div>
 				<div class="grid-item" id="grid14x5"></div>
 				<div class="grid-item" id="grid14x6">9</div>
-				<div class="grid-item" id="grid14x7">=</div>
+				<div class="grid-item-ans" id="grid14x7">=</div>
 				<div class="grid-item" id="grid14x8"></div>
 				<div class="grid-item" id="grid14x9"></div>
 			</div>
@@ -212,7 +218,7 @@
 				<div class="grid-item" id="grid15x4">+</div>
 				<div class="grid-item" id="grid15x5"></div>
 				<div class="grid-item" id="grid15x6">9</div>
-				<div class="grid-item" id="grid15x7">=</div>
+				<div class="grid-item-ans" id="grid15x7">=</div>
 				<div class="grid-item" id="grid15x8"></div>
 				<div class="grid-item" id="grid15x9"></div>
 			</div>
@@ -226,7 +232,7 @@
 				<div class="grid-item" id="grid16x4">+</div>
 				<div class="grid-item" id="grid16x5"></div>
 				<div class="grid-item" id="grid16x6">9</div>
-				<div class="grid-item" id="grid16x7">=</div>
+				<div class="grid-item-ans" id="grid16x7">=</div>
 				<div class="grid-item" id="grid16x8"></div>
 				<div class="grid-item" id="grid16x9"></div>
 			</div>
@@ -240,7 +246,7 @@
 				<div class="grid-item" id="grid17x4">+</div>
 				<div class="grid-item" id="grid17x5"></div>
 				<div class="grid-item" id="grid17x6">9</div>
-				<div class="grid-item" id="grid17x7">=</div>
+				<div class="grid-item-ans" id="grid17x7">=</div>
 				<div class="grid-item" id="grid17x8"></div>
 				<div class="grid-item" id="grid17x9"></div>
 			</div>
@@ -254,7 +260,7 @@
 				<div class="grid-item" id="grid18x4">+</div>
 				<div class="grid-item" id="grid18x5"></div>
 				<div class="grid-item" id="grid18x6">9</div>
-				<div class="grid-item" id="grid18x7">=</div>
+				<div class="grid-item-ans" id="grid18x7">=</div>
 				<div class="grid-item" id="grid18x8"></div>
 				<div class="grid-item" id="grid18x9"></div>
 			</div>
@@ -268,7 +274,7 @@
 				<div class="grid-item" id="grid19x4">+</div>
 				<div class="grid-item" id="grid19x5"></div>
 				<div class="grid-item" id="grid19x6">9</div>
-				<div class="grid-item" id="grid19x7">=</div>
+				<div class="grid-item-ans" id="grid19x7">=</div>
 				<div class="grid-item" id="grid19x8"></div>
 				<div class="grid-item" id="grid19x9"></div>
 			</div>
@@ -282,7 +288,7 @@
 				<div class="grid-item" id="grid20x4">+</div>
 				<div class="grid-item" id="grid20x5"></div>
 				<div class="grid-item" id="grid20x6">9</div>
-				<div class="grid-item" id="grid20x7">=</div>
+				<div class="grid-item-ans" id="grid20x7">=</div>
 				<div class="grid-item" id="grid20x8"></div>
 				<div class="grid-item" id="grid20x9"></div>
 			</div>
@@ -302,7 +308,7 @@
   display: grid;
   grid-template-columns: 230px 230px 230px 230px 230px;
   grid-template-rows: 400px 400px 400px 400px;
-  background-color: #2196F3;
+  background-color: #ffffff;
   padding: 10px;
     margin: 20px;
     height: 1600px;
@@ -311,7 +317,7 @@
 .inner-grid-container {
 	display: grid;
   	grid-template-columns: auto auto auto;
-  	background-color: #2196F3;
+  	background-color: #ffffff;
   	padding: 5px;
 	}
 .grid-item {
@@ -321,6 +327,17 @@
   padding: 20px;
   font-size: 30px;
   text-align: center;
+height: 40px;
+}
+.grid-item-ans {
+    display: block;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 5px;
+padding-top: 35px;
+  font-size: 15px;
+  text-align: left;
+height: 40px;
 }
 </style>
 
