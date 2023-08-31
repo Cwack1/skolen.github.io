@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <iframe src="header.html" width="100%" height="100" frameborder="0" scrolling="no"></iframe>
+</head>
+<body></body>
+</html>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js">import { jsPDF } from "jspdf";</script>
+<script>
+    window.jsPDF = window.jspdf.jsPDF;
+    let doc;
+    let maxNum = null;
+
+/*
+    ---- Function calls from HTML
+*/
+    function fargeleggBrok(){
+        const name = "Brøk - Mengde";
+        createNewWorksheet(name);
+        let width = 48;
+        const height = 10;
+        const startX = 20;
+        const startY = 40;
+        doc.setLineWidth(0.5); 
+        doc.setDrawColor(0, 0, 0);
+        doc.setFontSize(14);
+
+        let rows;
+        let distanceBetweenRows = 66;
+        if(maxNum>=20){
+            rows = 1;
+            width = 170;
+        }else if(maxNum>=10){
+            rows = 2;
+            distanceBetweenRows = 100;
+            width = 80;
+        }else{
+            rows = 3;
+        }
+        //console.log(`Maxnum: ${maxNum}`);
+        //console.log(`Rows: ${rows}`);
+        for (var i = 0; i<rows; i++){
+            for (var j = 0; j <12; j++){
+                createBrokDrawing(startX + (i * distanceBetweenRows), startY + (j * 20), width, height);
+           }
+        }
+        //createBrokDrawing(startX, startY, width, height);
+                
+        
+        saveWorksheet(name);
+    };
+
+    function createBrokDrawing(startX, startY, width, height){
+        doc.rect(startX, startY, width, height);
+        let y = randomInt(maxNum);
+        let x = randomInt(maxNum);
+        if(x>y){
+            let tmp = x;
+            x = y;
+            y = tmp;
+        }
+        let partWidth = width / y;
+        for(let i = 0; i < y; i++){
+            doc.rect(startX + (i * partWidth), startY, partWidth, height);
+        }
+        
+        doc.line(startX-10, startY + height/2, startX - 2, startY + height/2);
+        doc.text(`${x}`, startX - 6, startY + height/2 - 1, {align: 'center'});
+        doc.text(`${y}`, startX - 6, startY + height/2 + 5, {align: 'center'});
+    }
+
+    function brok(s, ekte){
+        const name = "Brøk";
+        createNewWorksheet(name);
+
+        for (let i = 0; i<3; i++){
+            for (let j = 1; j <=10; j++){
+                let y = randomInt(maxNum, 3);
+                let x;
+                let w;
+
+                if(ekte==='true'){
+                    let attempts = 0;
+                    do{
+                        x = randomInt(maxNum / 2, 1);
+                        w = randomInt(maxNum / 2, 1);
+                        attempts++;
+                        if(attempts>10 && y<maxNum){
+                            y++;
+                            attempts=0;
+                        }
+                        if(attempts>100 && y==maxNum){
+                            x = 0;
+                            w = 1;
+                            y = 2;
+                        }
+                    }while(x+w>y);
+                }else{
+                    x = randomInt(maxNum);
+                    w = randomInt(maxNum);
+                }
+
+                const xTra = 2 * y.toString().length;
+                let iMultiplier = i * 70;
+                createFraction(x.toString(), y.toString(), 10 + iMultiplier, 20 + (j*20));
+                doc.text(s, xTra + 15.5 + iMultiplier, 30 + (j*20));
+                createFraction(w.toString(), y.toString(), xTra + 25 + iMultiplier, 20 + (j*20));
+                doc.text('=', xTra + 35 + iMultiplier, 30 + (j*20));
+                createEmptyFraction(xTra + 45 + iMultiplier, 20 + (j*20));
+            }
+        }
+
+
+        saveWorksheet(name);
+    }
+
+    function tierOvergang(num = 1){
+        let name;
+        num === 2 ? name = "Tierovergang 2" : name = "Tierovergang 1";
+        createNewWorksheet(name);
+        doc.setFontSize(30);
+        doc.setCharSpace(6);
+        for (var i = 0; i<=3; i++){
+            for (var j = 0; j <=3; j++){
+                let x = randomInt(9, 2);
+                let y;
+                do{
+                    y = 9 - x + randomInt(9);
+                }while (y >= 10 || x + y <= 10);
+                let tierX;
+                let tierY;
+                if(num===1){
+                    tierX = randomInt(7);
+                    tierY = randomInt(8-tierX);
+                }else{
+                    tierX = randomInt(9, 2);
+                    do{
+                        tierY = 9 - tierX + randomInt(9);
+                    }while(tierY >= 10);
+                }
+                doc.text(`${tierX}${x}`, 45 + (i * 48), 40 + (j * 60), {align: 'right'});
+                doc.text(`${tierY}${y}`, 45 + (i * 48), 52 + (j * 60), {align: 'right'});
+            }
+        }
+        saveWorksheet(name);
+    }
+
+    function regnestykke(name, tegn){
+        const nameBackup = name;
+        createNewWorksheet(name);
+        for (let i = 0; i<4; i++){
+            if(nameBackup==="4 Regnearter"){
+                switch(i){
+                    case 0: 
+                    name="Addisjon";
+                    tegn = "+";
+                    break;
+                    case 1: 
+                    name="Subtraksjon";
+                    tegn = "-";
+                    break;
+                    case 2: 
+                    name="Multiplikasjon";
+                    tegn = "x";
+                    break;
+                    case 3: 
+                    name="Divisjon";
+                    tegn = ":";
+                    break;
+                }
+            }
+            for (let j = 1; j <=10; j++){
+                let x = randomInt(maxNum);
+                let y = randomInt(maxNum);
+                switch(name){
+                    case "Subtraksjon":
+                        if(x<y){
+                            let tmp = x;
+                            x = y;
+                            y = tmp;
+                        }
+                    break;
+                    case "Subtraksjon uten tierovergang":
+                        if(x<y){
+                            let tmp = x;
+                            x = y;
+                            y = tmp;
+                        }
+                        if(x % 10 < y % 10){
+                            console.log(x + " = Y" + y);
+                            y = y - (y % 10);
+                        }
+                    break;
+
+                    case "Divisjon":
+                        while(isPrime(x)){
+                            x = randomInt(maxNum-1, 2);
+                        } 
+                        while(!(x % y === 0) || (x === y)){
+                            y = randomInt(maxNum, 2);
+                        }
+                    break;
+                }
+                createQuestion(x, y, tegn, 10 + (i*50), 20 + (j*20));
+            }
+        }
+        saveWorksheet(name);
+    }
+/*
+    ---- END OF Function calls from HTML
+*/    
+/*
+    ----- INITS
+*/ 
+
+/*
+    ---- PDF calls
+*/
+    const newDoc = () => {
+        return new jsPDF();
+    };
+
+    const createNewWorksheet = (type) => {
+        doc = newDoc();
+        createHeader(type);
+        switch(type){
+            case "Tierovergang 1": 
+                createSquares();
+            break;
+            case "Tierovergang 2": 
+                createSquares(true);
+            break;
+            case "Brøk":
+                createBrokBoxes();
+                setMaxNum();
+            break;
+            case "Brøk - Mengde":
+                setMaxNum();
+                break;
+            case "DEMO":
+
+            break;
+            case "Ruteark":
+                
+            break;
+            default: 
+                setMaxNum();
+                //createBoxes();
+            break;
+        }
+    };
+
+    const saveWorksheet = (type) => {
+        doc.setFontSize(8);
+        doc.text("Skolen.XYZ", 200, 10, { align: 'center' });
+        doc.save(`${type}.pdf`);
+    };
+
+/*
+    ---- END OF PDF CALLS
+*/
+
+/*
+    ----- Additional Functions
+*/
+    const getInput = (txt = "Høyeste tallet du ønsker å regne med: ") => {
+        return prompt(txt);
+    };
+
+    const setMaxNum = (txt) => {
+        maxNum = getInput(txt);
+    };
+
+    const randomInt = (max = 10, min = 1) => {
+        return Math.floor(Math.random() * (max-min + 1)) + min;
+    }
+
+    function createHeader(title){
+        doc.setFontSize(24);
+        doc.text(title, 100, 20, {align: 'center'});
+        doc.setFontSize(16);
+        doc.text('Navn: __________', 10, 20);
+    //doc.text('Points: _____ / 40', 200, 20, {align: 'right'});
+    }
+
+    /*
+    ----- Regnestykker
+    */
+
+    const createQuestion = (x, y, separator, xPos, yPos) => {
+        doc.text(`${x} ${separator} ${y} = _____`, xPos, yPos);
+    };
+
+    function isPrime(num) {
+        for(let i = 2; i < num; i++){
+            if(num % i === 0){
+                return false;   
+            }
+        }
+        return true;
+    }
+
+    function createBoxes(){ //Lager fire rektangler nedover for 40 oppgaver
+        doc.rect(5, 30, 47, 200);
+        doc.rect(55, 30, 47, 200);
+        doc.rect(105, 30, 47, 200);
+        doc.rect(155, 30, 47, 200);
+    }
+
+    /*
+    ------ TIEROVERGANG
+    */
+    const createSquares = (extra = false, size = 12) => {
+        for (let i = 0; i<4; i++){
+            createRowOfBoxes(30,30 + (i * 60), extra);
+        }
+    };
+
+    function createRowOfBoxes(x, y, extra = false, size = 12){
+        for(let i = 0; i<4; i++){
+            createGridBoxes((size * (i * 4)) + x, y, size, extra);
+        }
+    }
+    
+    function createGridBoxes(x, y, size = 12, extra = false){
+        doc.setLineWidth(0.5); 
+        doc.setDrawColor(0, 0, 0);
+        doc.setFontSize(20);
+        doc.rect(x, y, size, size);
+        doc.rect(x+size, y, size, size);
+        doc.rect(x, y+size, size, size);
+        doc.rect(x+size, y+size, size, size);
+        doc.rect(x, y+(size*2), size, size);
+        doc.rect(x+(size), y+(size*2), size, size);
+        doc.text("+", x-5, y+size+9, {align: 'left'});
+        if(extra){
+            doc.rect(x-size, y+(size*2), size, size);
+            doc.text("=", x-size-5, y+(size*2)+9, {align: 'left'});
+            doc.line(x-size, y+(size*3)-1, x+(size*2), y+(size*3)-1);
+        }else{
+            doc.text("=", x-5, y+(size*2)+9, {align: 'left'});
+            doc.line(x, y+(size*3)-1, x+(size*2), y+(size*3)-1);
+        }
+    }
+
+
+    /*
+    -------- BRØK
+    */
+    function createBrokBoxes(){ //Lager tre rektangler nedover for 27 oppgaver
+        doc.rect(5, 30, 60, 210);
+        doc.rect(73, 30, 60, 210);
+        doc.rect(140, 30, 60, 210);
+        //doc.rect(155, 30, 47, 210);
+    }
+
+    function createEmptyFraction(x, y){
+        createFraction(" ", " ", x, y);
+    }
+
+    function createFraction(a,b, xPos, yPos){
+        doc.setFontSize(16);
+        doc.text(a, xPos+2, yPos + (1 * 7), {align: 'center'});
+        doc.text(b, xPos+2, yPos + (2 * 7), {align: 'center'});
+        doc.setLineWidth(0.5); 
+        doc.setDrawColor(0, 0, 0);
+        let Xtra = 2 + (3 * b.length);
+        doc.line(xPos-2, yPos+8.5, xPos+Xtra, yPos+8.5);
+    }
+
+
+    function demoFunc(){
+        const name = "DEMO";
+        //createNewWorksheet(name);
+        //WORKING
+        //createVerticalBoxes(2);
+        //WORKING
+        //createSmallGrid(30, 30, "+", 3, 3, true);
+        /*
+        //5x5 uten ekstra WORKING ("+", 5, 5, 2, 3, true, 12);
+        //4x5 med ekstra WORKING ("+", 4, 5, 2, 3, true, 12);
+        //3x3 med ekstra WORKING ("+", 3, 3, 2, 3, true, 18);
+        */
+        //createMultipleSmallGrids("+", 4, 4, 2, 3, false, 18);
+        //saveWorksheet(name);
+        ruteArk("Subtraksjon uten tier overgang", "-", 3, 4, 4, 3);
+    }
+
+    function ruteArk(num = 99, name, tegn, gridX, gridY, gridRight = 3, gridDown = 3, size = 12){
+        createNewWorksheet("Ruteark");
+        maxNum = parseInt(num);
+        createMultipleSmallGrids(tegn, gridX, gridY, gridRight, gridDown, false, size);
+        lagRegnestykke(name, gridX, gridY, gridRight, gridDown, size);
+        saveWorksheet(name);
+    }
+
+    function lagRegnestykke(name, gridX, gridY, gridRight, gridDown, size){
+        doc.setFontSize(30);
+        doc.setCharSpace(6);
+        const widthBetween = 3;
+        for (var i = 0; i<gridX; i++){
+            for (var j = 0; j <gridY; j++){
+                let x = randomInt(maxNum);
+                let y = randomInt(maxNum);
+
+                switch(name){
+                    case "Subtraksjon":
+                        if(y > x){
+                            let tmp = x;
+                            x = y;
+                            y = tmp;
+                        }
+                    break;
+                    case "Subtraksjon uten tier overgang":
+                        if(x<y){
+                            let tmp = x;
+                            x = y;
+                            y = tmp;
+                        }
+                        if(x % 10 < y % 10){
+                            console.log(x + " = Y" + y);
+                            y = y - (y % 10);
+                        }
+                        if(x%10===0){
+                            y = 10;
+                        }
+                        if(y===0){
+                            y = randomInt(x%10);
+                        }
+                    break;
+                    default: 
+
+                    break;
+                };
+                let adjustX;
+                x<10 ? adjustX = 1 : adjustX = 0;;
+                let adjustY;
+                y<10 ? adjustY = 1 : adjustY = 0;
+                let adjustXHundred;
+                x>=100 ? adjustXHundred = 1 : adjustXHundred = 0;;
+                let adjustYHundred;
+                y>=100 ? adjustYHundred = 1 : adjustYHundred = 0;
+                const firstPos = (size*gridRight) + (size * i) + (i * size * gridRight) + (widthBetween * i);
+                const secondPos = (j * (size*(gridDown+1))) + (widthBetween * j);
+                doc.text(`${x}`, firstPos + (adjustX * (size/2)) - (adjustXHundred * (size/2)), 40 + secondPos, {align: 'right'});
+                doc.text(`${y}`, firstPos + (adjustY * (size/2)) - (adjustYHundred * (size/2)), 52 + secondPos, {align: 'right'});
+            }
+        }
+        doc.setCharSpace(0);
+    }
+
+    function createVerticalBoxes(numBoxes = 3){
+        const startPosX = 10;
+        const finalPosX = 205;
+        const startPosY = 30;
+        const finalPosY = 280;
+        const widthBetween = 5;
+        //const heightBetween = 20;
+        const maxWidth = finalPosX - startPosX - (widthBetween * numBoxes);
+        const maxHeight = finalPosY - startPosY;
+
+        const boxWidth = maxWidth / numBoxes;
+        for(let i = 0; i<numBoxes; i++){
+            doc.rect(startPosX + (i * boxWidth) + (widthBetween * i), startPosY, boxWidth, maxHeight);
+        }
+    }
+
+    function createMultipleSmallGrids(symbol = "+", right = 4, down = 4, gridRight = 2, gridDown = 2, extra = false, size = 12){
+        let startPosX = 10;
+        extra ? startPosX = 5 + (size*1.5) : startPosX = startPosX;
+        const startPosY = 30;
+        let widthBetween = 15;
+        extra ? widthBetween = size + 15 : widthBetween = widthBetween;
+        const heightBetween = 15;
+        for(let i = 0; i<right; i++){
+            for(let j = 0; j<down; j++){
+                createSmallGrid(startPosX + (i * gridRight * size) + (widthBetween * i),startPosY + (j * gridDown * size) + (heightBetween * j), symbol, gridRight, gridDown, extra, size);
+            }
+        }
+    }
+
+    function createSmallGrid(startX, startY, symbol = "+", right = 2, down = 2, extra = false, size = 12){
+        doc.setLineWidth(0.5); 
+        doc.setDrawColor(0, 0, 0);
+//        doc.setFontSize(20);
+        for(let i = 0; i<right; i++){
+            for(let j = 0; j<down; j++){
+                doc.rect(startX + (size * i), startY + (size * j), size, size);
+            }
+        }
+        
+        let oldFontSize = doc.getFontSize();
+        doc.setFontSize(size*1.5);
+        const distanceToSymbols = size / 2;
+        const heightCompensateForSymbols = size / 1.5;
+
+        doc.text(symbol, startX-distanceToSymbols, startY+(size*(down-2))+heightCompensateForSymbols, {align: 'left'});
+
+        if(extra){
+            doc.rect(startX-size, startY+(size*(down-1)), size, size);
+            doc.text("=", startX-size-distanceToSymbols, startY+(size*(down-1))+heightCompensateForSymbols, {align: 'left'});
+
+            //doc.line(x-size, y+(size*3)-1, x+(size*2), y+(size*3)-1);
+        }
+        else{
+            doc.text("=", startX-distanceToSymbols, startY+(size*(down-1))+heightCompensateForSymbols, {align: 'left'});
+            //doc.line(x, y+(size*3)-1, x+(size*2), y+(size*3)-1);
+        }
+        doc.setFontSize(oldFontSize);
+    }
+</script>
