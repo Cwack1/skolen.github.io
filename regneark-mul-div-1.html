@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(function(){
+            $("#Header").load("header.html");
+        });
+    </script>
+</head>
+<body>
+    <div id="Header"></div>
+    <div class="form">
+  <button onclick="saveHTML()">Lagre som PDF</button>
+	<button onclick="generateNewNumbers()">Ny</button>
+	<button onclick="changeRegneart('x')">Multiplikasjon</button>
+	<button onclick="changeRegneart(':')">Divisjon</button>
+</div>
+
+  <div id="contentToPrint" class="contentToPrint">
+    <div class="grid-container">
+      <div class="multi-item">
+        <p class="oppgTitle">Oppgave 1</p>
+          <div class="inner-multi-container">
+            <div class="inner-multi-item" id="grid1x1">2</div>
+            <div class="inner-multi-item" id="grid1x2">x</div>
+            <div class="inner-multi-item" id="grid1x3">4</div>
+            <div class="inner-multi-item" id="grid1x4">=</div>
+            <div class="inner-multi-item" id="grid1x5">8</div>
+          </div> <!-- End of inner-multi-item -->
+      </div> <!-- End of multi-item -->
+    </div> <!-- End of grid-container -->
+        <div class="grid-container">
+      <div class="multi-item">
+        <p class="oppgTitle">Oppgave 2</p>
+          <div class="inner-multi-container">
+            <div class="inner-multi-item" id="grid1x1">2</div>
+            <div class="inner-multi-item" id="grid1x2">x</div>
+            <div class="inner-multi-item" id="grid1x3">4</div>
+            <div class="inner-multi-item" id="grid1x4">=</div>
+            <div class="inner-multi-item" id="grid1x5">8</div>
+          </div> <!-- End of inner-multi-item -->
+      </div> <!-- End of multi-item -->
+    </div> <!-- End of grid-container -->
+        <div class="grid-container">
+      <div class="multi-item">
+        <p class="oppgTitle">Oppgave 3</p>
+          <div class="inner-multi-container">
+            <div class="inner-multi-item" id="grid1x1">2</div>
+            <div class="inner-multi-item" id="grid1x2">x</div>
+            <div class="inner-multi-item" id="grid1x3">4</div>
+            <div class="inner-multi-item" id="grid1x4">=</div>
+            <div class="inner-multi-item" id="grid1x5">8</div>
+          </div> <!-- End of inner-multi-item -->
+      </div> <!-- End of multi-item -->
+    </div> <!-- End of grid-container -->
+  </div> <!-- End of contentToPrint -->
+</body>
+</html>
